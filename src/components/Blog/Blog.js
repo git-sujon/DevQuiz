@@ -1,5 +1,5 @@
 import React from 'react';
-import cover from '../../Images/FAQ (1).webp'
+import cover from '../../Images/FAQ (2).png'
 const Blog = () => {
     return (
         <ul className='container lg:px-16 py-8'>
