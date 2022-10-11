@@ -1,0 +1,18 @@
+.showCase-bg {
+    background-image: linear-gradient(rgba(255, 230, 163, 0.24), rgba(0, 0, 0, 0.1)),  url(../../Images/fullscreen-slider.jpg);
+    /* background-size: cover; */
+    background-position: top center;
+    margin-top: -75px;
+    
+}
+
+.header-h1 {
+    color: rgb(1, 66, 15);
+    background: rgba(255, 255, 255, 0.034);
+}
+
+.header-button {
+    background: rgba(255, 255, 255, 0.144);
+    color: rgb(0, 26, 6);
+    font-weight: 700;
+}
