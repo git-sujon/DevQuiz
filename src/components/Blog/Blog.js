@@ -3,10 +3,10 @@ import cover from '../../Images/FAQ (2).png'
 const Blog = () => {
     return (
         <div className=''>
-            <img className='mx-auto ' src={cover} alt="" />
+            <img className='mx-auto h-64' src={cover} alt="" />
             <ul className='list-decimal text-4xl container lg:px-16 py-8 '>
                 <li>
-                    <div className='mt-16 '>
+                    <div className=' '>
                         <div class=" text-gray-700 text-4xl ">
                             <p class="grow px-4 py-3 font-medium border mb-8" for="collapse">How does Context api work?</p>
 
