@@ -7,7 +7,7 @@ const Quiz = () => {
     return (
         <div>
       
-            
+      <QuizCatagoriesLoad></QuizCatagoriesLoad>
         </div>
     );
 };
