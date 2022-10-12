@@ -57,7 +57,7 @@ const SIngleQuiz = ({ singleQuiz }) => {
 
 
     return (
-        <div className={`border-2  ${color ? 'border-red-500' : 'border-gray-500'} shadow-lg my-5 px-12 lg:px-16  py-8`}>
+        <div className={`border-2  ${color ? 'border-red-500' : 'border-gray-300'} shadow-lg my-5 px-12 lg:px-16  py-8`}>
             <li><h3 className='text-3xl mb-5'>{question.slice(3, -4)}</h3></li>
             <div className='flex justify-between '>
                 <div className=' '>

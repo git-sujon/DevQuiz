@@ -1,5 +1,5 @@
 .overly-bg {
-    background: rgba(131, 140, 72, 0.9);
+    background: hwb(221deg 7% 85% / 65%);
 }
 
 .hover-bg-button:hover {
