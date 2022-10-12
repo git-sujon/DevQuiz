@@ -9,6 +9,7 @@ import Login from '../Login/Login';
 import QuizDetails from '../QuizDetails/QuizDetails';
 import Analytics from '../Analytics/Analytics';
 import Profile from '../Profile/Profile';
+import Post from '../Post/Post';
 
 const Routes = () => {
     const router= createBrowserRouter([
@@ -32,7 +33,8 @@ const Routes = () => {
                 },
                 {
                     path:'/blog',
-                    element:<Blog></Blog>
+                    element:<Blog></Blog>,
+                    loader:()=> fetch ('blogData.json')
                 },
                 {
                     path:'/login',
@@ -41,7 +43,8 @@ const Routes = () => {
                 
                 {
                     path:'/analytics',
-                    element:<Analytics></Analytics>
+                    element:<Analytics></Analytics>,
+                    loader: ()=> fetch('fakeChart.json')
                 },
                 {
                     path:'/login',
@@ -55,6 +58,12 @@ const Routes = () => {
                     path:`quiz/:id`,
                     element:<QuizDetails></QuizDetails>,
                     loader: ({params})=> fetch (` https://openapi.programming-hero.com/api/quiz/${params.id}`)
+                },
+                {
+                    path:'/post',
+                    element:<Post></Post>,
+                    // loader: ({params})=> fetch(`https://devquiz.free.beeceptor.com/my/api/blog/${params.id}`)
+
                 }
             ]
         }
