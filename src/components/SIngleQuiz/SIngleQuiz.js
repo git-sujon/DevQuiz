@@ -1,35 +1,83 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { CountSateContext } from '../QuizDetails/QuizDetails';
 
 const SIngleQuiz = ({ singleQuiz }) => {
     // console.log(singleQuiz.options)
+    const [count, setCount] =useContext(CountSateContext)
     const { question, correctAnswer, options } = singleQuiz
     const [show, setShow] = useState(false)
+    const [checked, setChecked] = useState(false)
+    const [color, setColor] = useState(false)
+   
 
     // options.find(option =>console.log(option) )
     const showHideHandler = () => {
         setShow(!show)
-    if(!show) {
-        toast.success(`${correctAnswer}`);
+        setChecked(!checked)
+        setColor(!color)
+        // count===0 && color ? setCount(count) : setCount(count-1) 
+        if(count !== 0) {
+            setCount(count-1)
+        }
+       
+
+        if (!show) {
+            toast.success(`${correctAnswer}`);
+            
+        }
+
+        
     }
 
- 
+
+
+
+    const checkedBtnHandler = (event) => {
+      
+
+        if (event.value === correctAnswer) {
+            toast.success(`Correct`);
+            setCount(count + 1)
+            setChecked(!checked)
+            
+            
+
+        }
+        else {
+            toast.error(`InCorrect`);
+            count===0 ? setCount(count) : setCount(count-1) 
+            setChecked(!checked)
+            setColor(!color)
+        }
+
+
     }
-   
+
 
     return (
-        <div className='border-2 border-gray-300 shadow-lg my-5 px-12 lg:px-16  py-8'>
+        <div className={`border-2  ${color ? 'border-red-500' : 'border-gray-500'} shadow-lg my-5 px-12 lg:px-16  py-8`}>
             <li><h3 className='text-3xl mb-5'>{question.slice(3, -4)}</h3></li>
             <div className='flex justify-between '>
-                <ul className='list-disc '>
+                <div className=' '>
+                   
+
                     {
-                        options.map((option, idx) => <li className='ml-12 my-1 text-xl' key={idx}>{option}</li>)
+                        options.map((option, idx) => <div><input
+                            type="radio"
+                            className=''
+                            value={option}
+                            id={idx}
+                            name="Quiz"
+                            disabled={checked}
+                            onClick={(e) => checkedBtnHandler(e.target)}
+                        /> <label className={`ml-12 my-1 text-xl  p-2 `} key={option.id}>{option}</label></div>)
                     }
-                </ul>
-                <div onClick={(()=>{
+                </div>
+                <div onClick={(() => {
                     showHideHandler();
-                    
+
                 })}>
                     {
                         show ?
@@ -46,7 +94,7 @@ const SIngleQuiz = ({ singleQuiz }) => {
                                 </svg>
                             </p>
                     }
-                      <ToastContainer autoClose={1000} position="top-right"  toastStyle={{ backgroundColor: "rgba(255, 249, 166, 0.9)", color: "#000", fontSize: "20px" }}/>
+                    <ToastContainer autoClose={1000} position="top-right" toastStyle={{ backgroundColor: "rgba(255, 249, 166, 0.9)", color: "#000", fontSize: "20px" }} />
                 </div>
             </div>
         </div>

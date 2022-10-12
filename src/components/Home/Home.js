@@ -29,7 +29,7 @@ const Home = () => {
                 {/* button */}
                 <div className='text-center mb-44'>
                 <Link to='/quiz'>
-                    <button className='border-2 hover:border-transparent header-button border-green-900 rounded inline-block px-6 py-3 font-medium  shadow-md hover-bg-button hover:font-bold hover:text-white hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0  active:shadow-lg transition duration-150 ease-in-out '>
+                    <button className='hover:border-transparent header-button  rounded inline-block px-6 py-3 font-medium  shadow-md hover-bg-button hover:font-bold hover:text-white hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0  active:shadow-lg transition duration-150 ease-in-out '>
                         Have A Look
                     </button>
                 </Link>

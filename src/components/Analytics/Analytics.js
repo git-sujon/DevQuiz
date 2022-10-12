@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { QuizCatagorisContext } from '../Main/Main';
 
 const Analytics = () => {
     const data = useContext(QuizCatagorisContext)
     let quizData = data.data
-    console.log(quizData)
+    // console.log(quizData)
 
     return (
         <div>

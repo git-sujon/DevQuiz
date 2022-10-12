@@ -7,7 +7,7 @@
 }
 
 .header-h1 {
-    color: rgb(1, 66, 15);
+    color: rgb(32, 32, 32);
     background: rgba(255, 255, 255, 0.034);
 }
 
@@ -15,4 +15,5 @@
     background: rgba(255, 255, 255, 0.144);
     color: rgb(0, 26, 6);
     font-weight: 700;
+    border: 2px solid rgb(32, 32, 32);;
 }

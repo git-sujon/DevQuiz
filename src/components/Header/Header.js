@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../Images/logo-1.png'
 import './Header.css'
 import avatar from '../../Images/me.jpg'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Header = () => {
+const [notifi, setNotifi] =useState(2)
+    const notifiHandler =() => {
+        setNotifi(0)
+        toast.success(`New Update Release 🔥🔥🔥`);
+        toast.success(`1000+ New Quiz Added 🔥🔥🔥`);
+    }
+
     return (
         <header className="header-bg sticky top-0">
             <nav className="
@@ -42,23 +51,27 @@ const Header = () => {
                         </svg>
                     </button>
                     <div className="collapse navbar-collapse flex-grow items-center" id="navbarSupportedContent">
-                        <Link to='/' className="flex items-center text-gray-900 hover:text-gray-900 focus:text-gray-900mt-2 lg:mt-0 mr-1 " >
-                            <img src={logo} style={{height: "40px"}} alt="" />
-                        </Link>
+                        <NavLink  to='/' className="flex items-center   " >
+                            <img src={logo} style={{ height: "40px" }} alt="" />
+                        </NavLink>
                         {/* <!-- Left links --> */}
                         <ul className="navbar-nav flex flex-col pl-0 list-style-none mr-auto">
-                          
+
                             <li className="nav-item p-2">
-                                <NavLink className="border border-black py-2  hover:text-green-500 nav-link text-gray-500  focus:text-gray-500 p-0 font-bold" to='/'>Home</NavLink>
+                                <NavLink style={({ isActive }) => ({
+                                    border: isActive ? "2px solid black" : ''})} className=" py-1 px-2  hover:text-green-500 nav-link text-gray-500  focus:text-gray-500  font-bold" to='/home'>Home</NavLink>
                             </li>
                             <li className="nav-item p-2">
-                                <NavLink className="nav-link text-gray-500 hover:text-green-500  focus:text-gray-700 p-0 font-bold " to='/quiz'>Quiz</NavLink>
+                                <NavLink style={({ isActive }) => ({
+                                    border: isActive ? "2px solid black" : ''})} className=" py-1 px-2  hover:text-green-500 nav-link text-gray-500  focus:text-gray-500  font-bold " to='/quiz'>Quiz</NavLink>
                             </li>
                             <li className="nav-item p-2">
-                                <NavLink className="nav-link text-gray-500 focus:text-gray-700 p-0 font-bold hover:text-green-500" to='/blog'>Blog</NavLink>
+                                <NavLink style={({ isActive }) => ({
+                                    border: isActive ? "2px solid black" : ''})}  className=" py-1 px-2  hover:text-green-500 nav-link text-gray-500  focus:text-gray-500  font-bold" to='/blog'>Blog</NavLink>
                             </li>
                             <li className="nav-item p-2">
-                                <NavLink className="nav-link text-gray-500 focus:text-gray-700 p-0 font-bold hover:text-green-500" to='/analytics'>Analytics</NavLink>
+                                <NavLink style={({ isActive }) => ({
+                                    border: isActive ? "2px solid black" : ''})} className=" py-1 px-2  hover:text-green-500 nav-link text-gray-500  focus:text-gray-500 p-0 font-bold" to='/analytics'>Analytics</NavLink>
                             </li>
                         </ul>
                         {/* <!-- Left links --> */}
@@ -68,11 +81,12 @@ const Header = () => {
                     {/* <!-- Right elements --> */}
                     <div className="flex items-center relative">
                         {/* <!-- Icon --> */}
-                        <NavLink className="font-bold text-gray-900 hover:text-gray-700 focus:text-gray-700 mr-4" to="/login">
+                        <NavLink style={({ isActive }) => ({
+                                    border: isActive ? "2px solid black" : ''})} className="font-bold py-1 px-2 text-gray-900 hover:text-gray-700 focus:text-gray-700 mr-4" to="/login">
                             Login
                         </NavLink>
                         {/* <!-- Icon --> */}
-                        <Link  className="text-gray-500 hover:text-gray-700 focus:text-gray-700 mr-4" to="/blog">
+                        <Link className="text-gray-500 hover:text-gray-700 focus:text-gray-700 mr-4" to="/blog">
                             <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon=""
                                 className="w-4" role="img" xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 10 20">
@@ -90,24 +104,25 @@ const Header = () => {
           dropdown-toggle
           hidden-arrow
           flex items-center
-        " to="/profile" id="dropdownMenuButton1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        " href="#" id="dropdownMenuButton1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bell"
                                     className="w-4" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                     <path fill="currentColor"
                                         d="M224 512c35.32 0 63.97-28.65 63.97-64H160.03c0 35.35 28.65 64 63.97 64zm215.39-149.71c-19.32-20.76-55.47-51.99-55.47-154.29 0-77.7-54.48-139.9-127.94-155.16V32c0-17.67-14.32-32-31.98-32s-31.98 14.33-31.98 32v20.84C118.56 68.1 64.08 130.3 64.08 208c0 102.3-36.15 133.53-55.47 154.29-6 6.45-8.66 14.16-8.61 21.71.11 16.4 12.98 32 32.1 32h383.8c19.12 0 32-15.6 32.1-32 .05-7.55-2.61-15.27-8.61-21.71z">
                                     </path>
                                 </svg>
-                                <span className="text-white bg-red-700 absolute rounded-full text-xs -mt-2.5 ml-2 py-0 px-1.5">1</span>
+                                <span onClick={()=>notifiHandler()} className="text-white bg-red-700 absolute rounded-full  ml-2 py-0 px-1 mb-4">{notifi}
+                                <ToastContainer autoClose={1500} position="top-right" toastStyle={{ backgroundColor: "rgba(255, 249, 166, 0.9)", color: "#000", fontSize: "20px" }} />
+                                </span>
                             </Link>
-                    
+
                         </div>
-                        <div className="dropdown relative">
-                            <Link  to='/profile' 
-                                data-bs-toggle=''>
+                        <div className="">
+                            <Link to='/profile'>
                                 <img src={avatar} className="rounded-full"
-                                    style={{height: "40px", width: "40px"}} alt=""  />
+                                    style={{ height: "40px", width: "40px" }} alt="" />
                             </Link>
-                           
+
                         </div>
                     </div>
                     {/* <!-- Right elements --> */}
