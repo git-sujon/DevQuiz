@@ -1,5 +1,5 @@
 # Project Summary:-
-### Project Name: [DevQuiz](https://gleeful-pasca-fb37c0.netlify.app/).
+### Project Name: [DevQuiz](https://dev-quiz-1.netlify.app//).
 ### Live Site: https://gleeful-pasca-fb37c0.netlify.app/
 ### Project type: Educational
 # Uses Technology on Project:-
