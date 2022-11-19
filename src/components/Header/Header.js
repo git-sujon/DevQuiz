@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../Images/logo-1.png'
-import './Header.css'
 import avatar from '../../Images/me.jpg'
 import { ToastContainer, toast } from 'react-toastify';
 

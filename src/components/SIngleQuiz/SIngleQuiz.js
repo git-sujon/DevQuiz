@@ -94,7 +94,7 @@ const SIngleQuiz = ({ singleQuiz }) => {
                                 </svg>
                             </p>
                     }
-                    <ToastContainer autoClose={1000} position="top-right" toastStyle={{ backgroundColor: "rgba(255, 249, 166, 0.9)", color: "#000", fontSize: "20px" }} />
+                
                 </div>
             </div>
         </div>

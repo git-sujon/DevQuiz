@@ -34,7 +34,7 @@ const Routes = () => {
                 {
                     path:'/blog',
                     element:<Blog></Blog>,
-                    loader:()=> fetch ('blogData.json')
+          
                 },
                 {
                     path:'/login',
